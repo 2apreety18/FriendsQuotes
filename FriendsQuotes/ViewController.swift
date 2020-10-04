@@ -7,7 +7,6 @@
 //
 
 import UIKit
-///vag
 class ViewController: UIViewController {
     
     @IBOutlet weak var quoteButton: UIButton!
@@ -17,7 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var peopleImage: UIImageView!
     
     
-    // ----------- Launch Screen CODE Part ----------------
+            // ----------- Launch Screen CODE Part ----------------
     let arImage = UIImageView(image: UIImage(named: "logo")!)
     let splashView = UIView()
     var networkData: NetworkData?
@@ -27,7 +26,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         defaultLook()
-     // MusicPlayer.shared.playSoundEffect(soundEffect: "B")
         quoteLabel.flash(animation: .opacity, withDuration: 1, repeatCount: 2)
         peopleLabel.flash(animation: .opacity, withDuration: 1, repeatCount: 2)
         peopleImage.flash(animation: .opacity, withDuration: 1, repeatCount: 2)
@@ -36,7 +34,8 @@ class ViewController: UIViewController {
     
     
     func defaultLook(){ //after view gets loaded
-                  //----splashview design part
+        
+         //----splashview design part
         splashView.backgroundColor = UIColor(red: 255/255, green:255/255, blue: 255/255, alpha: 1.0) //red color appears
         view.addSubview(splashView)
         splashView.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height)
@@ -45,7 +44,7 @@ class ViewController: UIViewController {
         splashView.addSubview(arImage)
         arImage.frame = CGRect(x: splashView.frame.midX - 100, y: splashView.frame.midY - 100, width: 200, height: 200)
         
-                  //----Button design Part---
+        //----Button design Part---
         quoteButton.layer.cornerRadius = 8
         quoteButton.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
         quoteButton.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
@@ -82,7 +81,7 @@ class ViewController: UIViewController {
     }
 
     
-     //------------ Network Part --------
+                    //------------ Network Part --------
     func newQuote() {
        guard let url = URL(string: "https://friends-quotes-api.herokuapp.com/quotes/random") else {return}
        var request = URLRequest(url: url)
@@ -131,6 +130,7 @@ class ViewController: UIViewController {
     
     
     @IBAction func getMoreQuote(_ sender: Any) {
+        
         MusicPlayer.shared.playSoundEffect(soundEffect: "B")
         quoteButton.startWiggling() //as startWiggling func is an extension
         self.view.backgroundColor = BackgroundColorPalette().randomColor()
